@@ -24,6 +24,7 @@ export default function Home() {
         <>
           {error && <Alert variant="danger">{error}</Alert>}
             Home
+            
             <Link to="/Profile">Profile</Link>
             <Link to="/Header">Header</Link>
             <Button variant="link" onClick={handleLogout}>
