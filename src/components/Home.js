@@ -1,6 +1,7 @@
 import React from 'react'
-import Header from "./Header"
-import PostCard from "./PostCard"
+import Header from './Header'
+import PostCard from './PostCard'
+import Modal from './Modal'
 
 
 export default function Home() {
@@ -9,7 +10,8 @@ export default function Home() {
         <>
           <Header/>
             Home
-          <PostCard></PostCard>
+          <Modal />
+          <PostCard />
         </>
     )
 }
