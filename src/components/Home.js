@@ -9,9 +9,11 @@ export default function Home() {
     return (
         <>
           <Header/>
-            Home
-          <Modal />
-          <PostCard />
+          <div className="d-flex align-items-center justify-content-center" style={{ maxWidth: "1200px" }}>
+              Home
+            <Modal />
+            <PostCard />
+          </div>
         </>
     )
 }
