@@ -1,21 +1,21 @@
 import React, { useContext, useState, useCallback } from 'react'
-import { PostsContext } from "../contexts/PostsContext"
+// import { PostsContext } from "../contexts/PostsContext"
 import { Modal, Button } from "react-bootstrap"
 
 
 export default function Post() {
-    const { add } = useContext(PostsContext)
-    const [input, setInput] = useState('')
+    // const { add } = useContext(PostsContext)
+    // const [input, setInput] = useState('')
     const [show, setShow] = useState(false);
 
-    const addTodo = useCallback(
-        () => {
-          add(input)
-          setInput('')
-          setShow(false)
-        },
-        [input]
-    )
+    // const addTodo = useCallback(
+    //     () => {
+    //       add(input)
+    //       setInput('')
+    //       setShow(false)
+    //     },
+    //     [input]
+    // )
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -39,7 +39,7 @@ export default function Post() {
                     <Button variant="secondary" onClick={handleClose}>
                         閉じる
                     </Button>
-                    <Button variant="primary" onClick={addTodo}>
+                    <Button variant="primary" onClick={handleClose}>
                         送信
                     </Button>
                 </Modal.Footer>
