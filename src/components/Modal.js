@@ -1,48 +1,79 @@
-import React, { useContext, useState, useCallback } from 'react'
-// import { PostsContext } from "../contexts/PostsContext"
-import { Modal, Button } from "react-bootstrap"
+import React, { useState } from 'react'
+import { thoughts } from "../firebase"
+import { Modal, Button, Form } from "react-bootstrap"
 
 
 export default function Post() {
-    // const { add } = useContext(PostsContext)
-    // const [input, setInput] = useState('')
     const [show, setShow] = useState(false);
-
-    // const addTodo = useCallback(
-    //     () => {
-    //       add(input)
-    //       setInput('')
-    //       setShow(false)
-    //     },
-    //     [input]
-    // )
+    const [title, setTitle] = useState("");
+    const [about, setAbout] = useState("");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    function handleSubmit(e) {
+        console.log("うんこ")
+        e.preventDefault()
+
+        //
+        thoughts.add({
+            title: title,
+            about: about,
+            createdAt: new Date(),
+        })
+
+        setTitle("")
+        setAbout("")
+        handleClose()
+    }
+
 
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+                投稿
             </Button>
+
+            <div>
+                <p>ここにデータ表示</p>
+                {}
+            </div>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>アイデアを入力</Modal.Title>
                 </Modal.Header>
 
-                <Modal.Body>
-                    Woohoo, you're reading this text in a modal!
-                </Modal.Body>
+                <Form onSubmit={handleSubmit}>
+                    <Modal.Body>
+                        <Form.Group>
+                            <Form.Label>Title:</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={title}
+                                onChange={e => setTitle(e.target.value)}
+                            />
+                        </Form.Group>
 
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        閉じる
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        送信
-                    </Button>
-                </Modal.Footer>
+                        <Form.Group>
+                            <Form.Label>About:</Form.Label>
+                            <Form.Control
+                                as="textarea"
+                                rows={3}
+                                value={about}
+                                onChange={e => setAbout(e.target.value)}
+                            />
+                        </Form.Group>
+                    </Modal.Body>
+
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            閉じる
+                        </Button>
+                        <Button variant="primary" type="submit">
+                            送信
+                        </Button>
+                    </Modal.Footer>
+                </Form>
             </Modal>
         </>
     )

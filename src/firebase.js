@@ -13,9 +13,10 @@ const app = firebase.initializeApp({
   appId: "1:882083119512:web:683628ab5ca7cc39d46bed"
 })
 
-const auth = app.auth()
-const db = firebase.firestore()
+export const auth = app.auth()
+export const db = firebase.firestore()
 db.settings({ timestampsInSnapshots: true })
 
+export const thoughts = db.collection("thoughts")
+
 export default app
-export { auth, db }
