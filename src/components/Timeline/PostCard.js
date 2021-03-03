@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Button } from "react-bootstrap"
-import { thoughts } from "../firebase"
+import { thoughts } from "../../firebase"
 
 export default function PostCard() {
     thoughts.orderBy("createdAt", "desc").get().then((querySnapshot) => {

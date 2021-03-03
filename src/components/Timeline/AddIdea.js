@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { thoughts } from "../firebase"
+import { thoughts } from "../../firebase"
 import { Modal, Button, Form } from "react-bootstrap"
 
 
@@ -28,14 +28,9 @@ export default function Post() {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="outline-primary" block onClick={handleShow}>
                 投稿
             </Button>
-
-            <div>
-                <p>ここにデータ表示</p>
-                {}
-            </div>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
