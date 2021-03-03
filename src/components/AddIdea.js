@@ -11,7 +11,6 @@ export default function Post() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     function handleSubmit(e) {
-        console.log("うんこ")
         e.preventDefault()
 
         //
