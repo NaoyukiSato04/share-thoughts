@@ -7,7 +7,11 @@ export default function PostCard() {
     thoughts.orderBy("createdAt", "desc").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
+            const formattedDoc = {
+                id: doc.id,
+                ...doc.data()
+            }
+            console.log(formattedDoc);
         });
     });
 

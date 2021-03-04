@@ -14,7 +14,7 @@ const Sort = styled.a`
 export default function SortButton() {
     return (
         <>
-            <Right>  
+            <Right>
                 <Button variant="outline-secondary">
                     <Sort href="#">新着順</Sort>
                 </Button>
