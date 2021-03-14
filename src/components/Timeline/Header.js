@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom"
 
 
 export default function Header() {
-    const { logout } = useAuth()
+    const { logout, currentUser } = useAuth()
     const history = useHistory()
 
     async function handleLogout() {
@@ -21,6 +21,7 @@ export default function Header() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Navbar.Brand href="#home">share-thoughts</Navbar.Brand>
+            {currentUser.email}さん、こんにちは
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ml-auto">
