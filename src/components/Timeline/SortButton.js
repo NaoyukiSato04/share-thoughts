@@ -6,23 +6,19 @@ const Right = styled.div`
     text-align: right;
 `;
 
-const Sort = styled.a`
-    text-decoration: none;
-    color: inherit;
-`;
 
 export default function SortButton() {
     return (
         <>
             <Right>
-                <Button variant="outline-secondary">
-                    <Sort href="#">新着順</Sort>
+                <Button variant="outline-secondary" className="doun" href="#">
+                    新着順
                 </Button>
-                <Button variant="outline-secondary">
-                    <Sort href="#page-bottom">投稿順</Sort>
+                <Button variant="outline-secondary" className="up" href="#page-bottom">
+                    投稿順
                 </Button>
-                <Button variant="outline-secondary">
-                    <Sort href="#page-bottom">ページの一番下へ</Sort>
+                <Button variant="outline-secondary" href="#page-bottom">
+                    ページの一番下へ
                 </Button>
             </Right>
         </>

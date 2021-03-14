@@ -7,17 +7,12 @@ const Right = styled.div`
     text-align: right;
 `;
 
-const Sort = styled.a`
-    text-decoration: none;
-    color: inherit;
-`;
-
 export default function SortButton() {
     return (
         <>
             <Right>
-                <Button variant="outline-secondary">
-                    <Sort href="#">ページの一番上へ</Sort>
+                <Button variant="outline-secondary" href="#">
+                    ページの一番上へ
                 </Button>
             </Right>
         </>
