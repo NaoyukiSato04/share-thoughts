@@ -1,16 +1,10 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
-import styled from 'styled-components'
-
-const Right = styled.div`
-    text-align: right;
-`;
-
 
 export default function SortButton() {
     return (
         <>
-            <Right>
+            <div className="text-right">
                 <Button variant="outline-secondary" className="doun" href="#">
                     新着順
                 </Button>
@@ -20,7 +14,7 @@ export default function SortButton() {
                 <Button variant="outline-secondary" href="#page-bottom">
                     ページの一番下へ
                 </Button>
-            </Right>
+            </div>
         </>
     )
 }
