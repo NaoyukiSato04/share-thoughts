@@ -1,40 +1,50 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Card } from "react-bootstrap"
 import { thoughts } from "../../firebase"
-import { useAuth } from "../../contexts/AuthContext"
 import styled from 'styled-components'
 
+function usePosts() {
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    thoughts
+    .orderBy("createdAt", "desc")
+    .onSnapshot(snapshot => {
+        const newPosts = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data()
+        }))
+
+        setPosts(newPosts)
+    })
+  }, []);
+
+  return posts
+}
+
 export default function PostCard() {
-    const { currentUser } = useAuth()
-    
-    useEffect(() => {
-        thoughts.orderBy("createdAt", "desc").get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data().title);
-            });
-        });
-    });
-    
+  const posts = usePosts()
+  console.log()
 
-    const Right = styled.div`
-        text-align: right;
-    `;
+  const Right = styled.div`
+      text-align: right;
+  `;
 
-    return (
-        <>
-            <Card>
+  return (
+    <>
+        {posts.map((post) =>
+            <Card key={post.id}>
                 <Card.Body>
-                    {currentUser.uid}
-                    <Card.Title>sample1</Card.Title>
+                <Card.Title>{post.title}</Card.Title>
                     <Card.Text>
-                    text1
+                    {post.about}
                     </Card.Text>
-                    <Right>
-                        <Card.Text>xx秒前</Card.Text>
-                    </Right>
+                <Right>
+                    <Card.Text>xx秒前</Card.Text>
+                </Right>
                 </Card.Body>
             </Card>
-        </>
-    )
+        )}
+    </>
+  )
 }

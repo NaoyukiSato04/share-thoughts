@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { thoughts } from "../../firebase"
+import { useAuth } from "../../contexts/AuthContext"
 import { Modal, Button, Form } from "react-bootstrap"
 
 
@@ -7,6 +8,8 @@ export default function Post() {
     const [show, setShow] = useState(false);
     const [title, setTitle] = useState("");
     const [about, setAbout] = useState("");
+    const { currentUser } = useAuth()
+    
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -17,6 +20,7 @@ export default function Post() {
         thoughts.add({
             title: title,
             about: about,
+            userId: currentUser.uid,
             createdAt: new Date(),
         })
 
