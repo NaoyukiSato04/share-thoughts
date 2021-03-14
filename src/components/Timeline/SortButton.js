@@ -124,14 +124,14 @@ export default function SortButton() {
   return (
     <>
       <div style="text-align: right;">
-        <Button variant="outline-secondary">
-          <a class="doun" href="#">新着順</a>
+        <Button variant="outline-secondary" className="doun" href="#">
+          新着順
         </Button>
-        <Button variant="outline-secondary">
-          <a class="up" href="#page-bottom">投稿順</a>
+        <Button variant="outline-secondary" className="up" href="#page-bottom">
+          投稿順
         </Button>
-        <Button variant="outline-secondary">
-          <a href="#page-bottom">ページの一番下へ</a>
+        <Button variant="outline-secondary" href="#page-bottom">
+          ページの一番下へ
         </Button>
       </div>
     </>
