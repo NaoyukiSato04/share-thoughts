@@ -26,7 +26,7 @@ export default function Header() {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link href="/Profile">プロフィール</Nav.Link>
-                    <Nav.Link href="/Login" onClick={handleLogout}>ログアウト</Nav.Link>
+                    <Nav.Link onClick={handleLogout}>ログアウト</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

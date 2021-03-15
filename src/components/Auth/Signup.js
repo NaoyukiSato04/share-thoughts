@@ -38,7 +38,7 @@ export default function Signup() {
         <Row className="w-100" style={{ maxWidth: "100vw" }}>
           <Col>
             <h1>Share-Thougnts</h1>
-            <p>登録はメールアドレスとパスワードを入力するだけ</p>
+            <p>登録はメールアドレスとパスワードを入力するだけ<br/>パスワードは6文字以上で入力して下さい</p>
           </Col>
           <Col>
             <h2 className="text-center mb-4">登録</h2>
