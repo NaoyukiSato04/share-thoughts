@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react"
-import { Container, Form, Button, Card, Alert } from "react-bootstrap"
+import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap"
 import { useAuth } from "../../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 
@@ -30,33 +30,33 @@ export default function Login() {
     <>
       <Container className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}>
-        <div className="w-100" style={{ maxWidth: "400px" }}>
-          <Card>
-            <Card.Body>
-              <h2 className="text-center mb-4">ログイン</h2>
-              {error && <Alert variant="danger">{error}</Alert>}
-              <Form onSubmit={handleSubmit}>
-                <Form.Group id="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" ref={emailRef} required defaultValue="aaa@aaa.com"/>
-                </Form.Group>
-                <Form.Group id="password">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" ref={passwordRef} required defaultValue="aaaaaa"/>
-                </Form.Group>
-                <Button disabled={loading} className="w-100" type="submit">
-                  ログイン
-                </Button>
-              </Form>
-              <div className="w-100 text-center mt-3">
-                パスワードを忘れた方は <Link to="/forgot-password">こちら</Link>
-              </div>
-            </Card.Body>
-          </Card>
-          <div className="w-100 text-center mt-2">
-            アカウントをお持ちでない方はこちら <Link to="/signup">登録</Link>
-          </div>
-        </div>
+        <Row className="w-100" style={{ maxWidth: "100vw" }}>
+          <Col>
+            <h1>Share-Thougnts</h1>
+            <p>何気ないアイデアを気軽に共有、形にしよう</p>
+          </Col>
+          <Col>
+            <h2 className="text-center mb-4">ログイン</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required defaultValue="aaa@aaa.com"/>
+              </Form.Group>
+              <Form.Group id="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required defaultValue="aaaaaa"/>
+              </Form.Group>
+              <p>※サービス閲覧のため、ログイン可能なEmail,Passwordを入れております</p>
+              <Button disabled={loading} className="w-100" type="submit">
+                ログイン
+              </Button>
+            </Form>
+            <div className="w-100 text-center mt-3">
+               <Link to="/forgot-password">パスワードを忘れた方</Link>・<Link to="/signup">アカウントを登録</Link>
+            </div>
+          </Col>
+        </Row>
       </Container>
     </>
   )

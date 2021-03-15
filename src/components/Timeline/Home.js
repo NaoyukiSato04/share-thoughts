@@ -11,6 +11,7 @@ export default function Home() {
     return (
         <>
           <Header/>
+          <a href="https://test-a6dfd.web.app/">動作イメージ</a>
           <Container style={{ maxWidth: "60vw" }}>
             <Sort />
             <AddIdea />
